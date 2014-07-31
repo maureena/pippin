@@ -8,7 +8,7 @@ Pippin::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
 
-
+  get 'about' => "welcome#about"
   root to: 'welcome#index'
 
   # Example of regular route:

@@ -13,6 +13,31 @@
   </head>
 
   <body>
+
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name"><h1><%= link_to "Pippin", root_path %></h1></li>
+      </ul>
+
+      <section class="top-bar-section">
+
+        <ul class="right">
+          <% if current_user %>
+            <li>Hello <%= current_user.email %>!</li>
+              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% end %>
+        </ul>
+
+        <ul class="left">
+          <li class="name"><%= link_to "About", about_path %></li>
+        </ul>
+
+      </section>
+    </nav>
+
     <div class="row">
       <% if flash[:notice] %>
         <div class="alert-box radius success">
