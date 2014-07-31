@@ -16,7 +16,7 @@ events = Event.all
 
 10.times do
   Venue.create(
-    name: Faker::Lorem.words(3),
+    name: Faker::Lorem.words(3).join(" "),
     body: Faker::Lorem.paragraph(2),
     address: Faker::Address.street_address,
     phone: Faker::PhoneNumber.cell_phone,
