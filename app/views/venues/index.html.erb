@@ -1,0 +1,4 @@
+<h1>All Venues</h1>
+<% @venues.each do |venue| %>
+  <p><%= link_to venue.name, venue %></p>
+<% end %>

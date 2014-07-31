@@ -1,0 +1,32 @@
+<h1>New Venue</h1>
+
+<div class="row">
+
+  <div class="">
+  <%= form_for @venue do |f| %>
+    <div class="">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="">
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+    <div class="">
+      <%= f.label :address %>
+      <%= f.text_area :address %>
+    </div>
+    <div class="">
+      <%= f.label :phone %>
+      <%= f.text_area :phone %>
+    </div>
+    <div class="">
+      <%= f.label :website %>
+      <%= f.text_area :website %>
+    </div>
+    <div class="">
+      <%= f.submit "Save" %>
+    </div>
+  <% end %>
+  </div>
+</div>

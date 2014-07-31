@@ -1,0 +1,25 @@
+<h1>Edit Event</h1>
+
+<div class="row">
+  <p>Guidelines for events</p>
+
+  <div class="">
+  <%= form_for @event do |f| %>
+    <div class="">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="">
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+    <div class="">
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+    </div>
+    <div class="">
+      <%= f.submit "Save" %>
+    </div>
+  <% end %>
+  </div>
+</div>
