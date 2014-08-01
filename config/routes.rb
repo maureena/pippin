@@ -1,7 +1,10 @@
 Pippin::Application.routes.draw do
 
 
-  resources :events
+  resources :categories do
+    resources :events
+  end
+  
   resources :venues
 
   get 'about' => 'welcome#about'
