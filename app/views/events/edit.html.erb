@@ -4,7 +4,7 @@
   <p>Guidelines for events</p>
 
   <div class="">
-  <%= form_for @event do |f| %>
+  <%= form_for [@category, @event] do |f| %>
     <div class="">
       <%= f.label :title %>
       <%= f.text_field :title %>
@@ -17,6 +17,12 @@
       <%= f.label :price %>
       <%= f.text_field :price %>
     </div>
+
+    <div class="">
+      <%= f.label :category %>
+      <%= f.collection_select :category_ids, @categories, :id, :name, prompt: "Select One" %>
+    </div>
+
     <div class="">
       <%= f.submit "Save" %>
     </div>
