@@ -10,14 +10,15 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
-  #  @category.parent = Category.find(params[:id]) unless params[:id].nil?
+    @category.parent = Category.find(params[:id]) unless params[:id].nil?
   end
 
   def create
     @category = Category.new(category_params)
+    @category.parent = Category.find(params[:id]) unless params[:id].nil?
     if @category.save
       flash[:notice] = "Category was saved."
-      render :index
+      redirect_to categories_path
     else
       flash[:error] = "There was an error saving the category. Please try again."
       render :new
@@ -39,11 +40,23 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    @category = Category.find(params[:id])
+
+    if @category.destroy
+      flash[:notice] = "Category was deleted."
+      redirect_to categories_path
+    else
+      flash[:error] = "There was an error deleting the category. Please try again."
+      render :index
+    end
+  end
+
 
   private
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :id, :parent_id)
   end
 
 end
