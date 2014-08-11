@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @subcategories = @category.subcategories.to_a
+    @events = @category.events
   end
 
   def new

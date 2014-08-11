@@ -2,7 +2,7 @@ Pippin::Application.routes.draw do
 
 
   resources :categories do
-    resources :events
+      resources :events
   end
   
   resources :venues

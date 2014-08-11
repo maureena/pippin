@@ -30,6 +30,7 @@ class EventsController < ApplicationController
   def edit
     @categories = Category.all
     @category = Category.find(params[:category_id])
+    @subcategories = @category.subcategories.to_a
     @event = Event.find(params[:id])
   end
 

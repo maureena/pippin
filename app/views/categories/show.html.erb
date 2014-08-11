@@ -1,9 +1,15 @@
-<h1><%= @category.name %></h1>
-
-<%= link_to "Edit", edit_category_path(@category), class: '' %>
+<h1><%= @category.name %> <small><%= link_to "Edit", edit_category_path(@category), class: '' %></small></h1>
 
   <% if @subcategories %>
+  <ul>
     <% @subcategories.each do |subcategory| %>
-      <h4><%= link_to subcategory.name, subcategory %></h4>
+      <li><%= link_to subcategory.name, subcategory %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <% if @events %>
+    <% @events.each do |event| %>
+      <h4><%= link_to event.title, [@category, event] %></h4>
     <% end %>
   <% end %>
