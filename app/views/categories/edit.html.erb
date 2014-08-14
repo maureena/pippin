@@ -1,0 +1,18 @@
+<h1>Edit Category</h1>
+
+<div class="row">
+  <p>Guidelines for categories</p>
+
+  <div class="">
+  <%= form_for @category do |f| %>
+    <div class="">
+      <%= f.hidden_field :parent_id, :value => @category.parent_id %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="">
+      <%= f.submit "Save" %>
+    </div>
+  <% end %>
+  </div>
+</div>

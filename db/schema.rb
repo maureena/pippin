@@ -11,14 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20140725054704) do
+ActiveRecord::Schema.define(version: 20140801042829) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_id"
   end
+
+  add_index "categories", ["parent_id"], name: "index_categories_on_parent_id"
 
   create_table "categories_events", id: false, force: true do |t|
     t.integer "category_id", null: false

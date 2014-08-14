@@ -1,0 +1,14 @@
+<div class="row">
+  <h1>All Categories</h1>
+
+  <%= link_to "Add new category", new_category_path()%><br /><br />
+
+  <% @categories.each do |category| %>
+    <h4><%= link_to category.name, category %> <small><%= link_to "Edit", edit_category_path(id: category.id)%> | <%= link_to "Remove", category, :method => :delete %> | <%= link_to "Add subcategory", new_category_path(id: category.id)%></small></h4>
+
+      <% category.subcategories.each do |subcategory| %>
+        <h5><%= link_to subcategory.name, subcategory %> <small><%= link_to "Edit", edit_category_path(id: category.id)%> | <%= link_to "remove", subcategory, :method => :delete %></small></h5>
+
+      <% end %>
+  <% end %>
+</div>

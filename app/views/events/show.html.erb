@@ -1,13 +1,15 @@
-<h1><%= @event.title %></h1>
+<p>Category: <%= @event.categories.first.name %></p>
 
-<%= link_to "Edit", edit_event_path(@event), class: '' %>
+<h1><%= @event.title %> <small><%= link_to "Edit", edit_category_event_path(@category, @event), class: '' %></small></h1>
 
-<p><%= @event.body %></p>
-<p><%= @event.price %></p>
+
+
+<p>Description: <%= @event.body %></p>
+<p>Price: <%= @event.price %></p>
 
 <% if @event.venues.first %>
-  <p><%= @event.venues.first.name %></p>
-  <p><%= @event.venues.first.address %></p>
-  <p><%= @event.venues.first.phone %></p>
-  <p><%= @event.venues.first.website %></p>
+  <p>Venue: <%= @event.venues.first.name %></p>
+  <p>Address: <%= @event.venues.first.address %></p>
+  <p>Phone: <%= @event.venues.first.phone %></p>
+  <p>Website: <%= @event.venues.first.website %></p>
 <% end %>
